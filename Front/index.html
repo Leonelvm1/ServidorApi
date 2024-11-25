@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('https://www.laguiainmobiliaria.com.mx/wp-content/uploads/2015/05/ahorro_marranito.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
-        }
+    background-image: url('https://www.laguiainmobiliaria.com.mx/wp-content/uploads/2015/05/ahorro_marranito.jpg');
+    background-size: cover; /* Hace que la imagen cubra todo el área */
+    background-position: center center; /* Centra la imagen horizontal y verticalmente */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+    margin: 0; /* Elimina cualquier margen del body */
+}
+
         .form-container {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 30px;
@@ -51,7 +54,7 @@
     <!-- Formulario de Registro de Usuario -->
     <div class="form-container" id="registerForm" style="display: none;">
         <h2 class="text-center text-dark">Registro de Usuario</h2>
-        <form>
+        <form id="formUsuario">
             <div class="form-group">
                 <label for="nombresUsuario">Nombres</label>
                 <input type="text" class="form-control" name="nombres" id="nombresUsuario" required>
@@ -70,11 +73,12 @@
             </div>
             <div class="form-group">
                 <label for="contrasena">Contraseña</label>
-                <input type="password" class="form-control" name="contrasena" id="contrasena" step="0.01" required>
+                <input type="password" class="form-control" name="contrasena" id="contrasena" required>
             </div>
             <button type="submit" class="btn btn-primary" id="btnRegistrarUsuario">Registrar</button>
         </form>
     </div>
+    
 
     <!-- Formulario de Inicio de Sesión -->
     <div class="form-container" id="loginForm" style="display: none;">
