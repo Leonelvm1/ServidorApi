@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema contable</title>
+    <title>Sistema Contable</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -26,160 +26,83 @@
         label {
             color: darkblue;
         }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .btn-container button {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
 
-<section>
-    <div class="row ">
-        <div id="fila" class= "col-md-4 p-5"></div>
-    </div>
-</section>
-
 <div class="container">
-    <h1 class="text-center text-white">Sistema contabilidad</h1>
+    <h1 class="text-center text-white">Sistema Contable</h1>
 
-    <div class="accordion" id="formAccordion">
+    <!-- Botones para alternar entre formularios -->
+    <div class="btn-container">
+        <button class="btn btn-primary" onclick="showForm('register')">Registro de Usuario</button>
+        <button class="btn btn-success" onclick="showForm('login')">Iniciar Sesión</button>
+    </div>
 
-        <!-- Formulario de Ingreso -->
-        <div class="card">
-            <div class="card-header" id="headingIngreso">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseIngreso" aria-expanded="true" aria-controls="collapseIngreso">
-                        Registrar Ingreso
-                    </button>
-                </h5>
+    <!-- Formulario de Registro de Usuario -->
+    <div class="form-container" id="registerForm" style="display: none;">
+        <h2 class="text-center text-dark">Registro de Usuario</h2>
+        <form action="/register_usuario" method="POST">
+            <div class="form-group">
+                <label for="nombresUsuario">Nombres</label>
+                <input type="text" class="form-control" name="nombres" id="nombresUsuario" required>
             </div>
-            <div id="collapseIngreso" class="collapse" aria-labelledby="headingIngreso" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/register_ingreso" method="POST">
-                        <div class="form-group">
-                            <label for="descripcionIngreso">Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcionIngreso" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="valorIngreso">Valor</label>
-                            <input type="number" class="form-control" name="valor" id="valorIngreso" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaIngreso">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fechaIngreso" required>
-                        </div>
-                        <button id="btnRegistrarIngreso" type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" required>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="ubicacionUsuario">Ubicación</label>
+                <input type="text" class="form-control" name="ubicacion" id="ubicacionUsuario" required>
+            </div>
+            <div class="form-group">
+                <label for="metaAhorroUsuario">Meta de Ahorro</label>
+                <input type="number" class="form-control" name="metaAhorro" id="metaAhorroUsuario" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btnRegistrarUsuario">Registrar</button>
+        </form>
+    </div>
 
-        <!-- Formulario de Usuario -->
-        <div class="card">
-            <div class="card-header" id="headingUsuario">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseUsuario" aria-expanded="false" aria-controls="collapseUsuario">
-                        Registro de Usuario
-                    </button>
-                </h5>
+    <!-- Formulario de Inicio de Sesión -->
+    <div class="form-container" id="loginForm" style="display: none;">
+        <h2 class="text-center text-dark">Inicio de Sesión</h2>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" name="username" id="username" required>
             </div>
-            <div id="collapseUsuario" class="collapse" aria-labelledby="headingUsuario" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/register_usuario" method="POST">
-                        <div class="form-group">
-                            <label for="nombresUsuario">Nombres</label>
-                            <input type="text" class="form-control" name="nombres" id="nombresUsuario" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="ubicacionUsuario">Ubicación</label>
-                            <input type="text" class="form-control" name="ubicacion" id="ubicacionUsuario" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="metaAhorroUsuario">Meta de Ahorro</label>
-                            <input type="number" class="form-control" name="metaAhorro" id="metaAhorroUsuario" step="0.01" required>
-                        </div>
-                        <button id="btnRegistrarUsuario" type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" name="password" id="password" required>
             </div>
-        </div>
-
-        <!-- Formulario de Gasto -->
-        <div class="card">
-            <div class="card-header" id="headingGasto">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGasto" aria-expanded="false" aria-controls="collapseGasto">
-                        Registrar Gasto
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseGasto" class="collapse" aria-labelledby="headingGasto" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/register_gasto" method="POST">
-                        <div class="form-group">
-                            <label for="descripcionGasto">Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcionGasto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="categoriaGasto">Categoría</label>
-                            <input type="text" class="form-control" name="categoria" id="categoriaGasto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="valorGasto">Valor</label>
-                            <input type="number" class="form-control" name="valor" id="valorGasto" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaGasto">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fechaGasto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="idUsuarioGasto">ID de Usuario</label>
-                            <input type="number" class="form-control" name="id_usuario" id="idUsuarioGasto" required>
-                        </div>
-                        <button id="btnRegistrarGasto" type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Formulario de Categoría -->
-        <div class="card">
-            <div class="card-header" id="headingCategoria">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseCategoria" aria-expanded="false" aria-controls="collapseCategoria">
-                        Registrar Categoría
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseCategoria" class="collapse" aria-labelledby="headingCategoria" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/register_categoria" method="POST">
-                        <div class="form-group">
-                            <label for="nombreCategoria">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="nombreCategoria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcionCategoria">Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcionCategoria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="valorCategoria">Valor</label>
-                            <input type="number" class="form-control" name="valor" id="valorCategoria" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaCategoria">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fechaCategoria" required>
-                        </div>
-                        <button id="btnRegistrarCategoria" type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
+            <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+        </form>
     </div>
 </div>
 
+<script>
+    function showForm(formType) {
+        // Oculta ambos formularios
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'none';
+
+        // Muestra el formulario correspondiente
+        if (formType === 'register') {
+            document.getElementById('registerForm').style.display = 'block';
+        } else if (formType === 'login') {
+            document.getElementById('loginForm').style.display = 'block';
+        }
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
