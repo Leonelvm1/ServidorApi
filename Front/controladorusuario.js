@@ -5,6 +5,7 @@ let nombreUsuario = document.getElementById("nombresUsuario")
 let fechaNacimientoUsuario = document.getElementById("fechaNacimiento")
 let ubicacionUsuario = document.getElementById("ubicacionUsuario")
 let metaAhorroUsuario = document.getElementById("metaAhorroUsuario")
+let contrasena = document.getElementById("contrasena")
 
 // variable que asocia el boton con el form
 let botonRegistroUsuario = document.getElementById("btnRegistrarUsuario")
@@ -20,7 +21,8 @@ botonRegistroUsuario.addEventListener("click", function(evento) {
         nombres: nombreUsuario.value,
         fechaNacimiento: fechaNacimientoUsuario.value,
         ubicacion: ubicacionUsuario.value,
-        metaAhorro: parseFloat(metaAhorroUsuario.value)  // Convertir a número flotante
+        metaAhorro: parseFloat(metaAhorroUsuario.value),
+        contrasena: contrasena.value  // Convertir a número flotante
     };
 
     console.log(objetoEnvioDatosUsuario);

@@ -17,6 +17,7 @@ class Usuario(Base):
     fechaNacimiento = Column(Date)
     ubicacion = Column(String(100))
     metaAhorro = Column(Float)
+    contrasena = Column(String(50))
 
 
 class Gasto(Base):
@@ -42,3 +43,4 @@ class Ingreso(Base):
     descripcion = Column(String(50))
     valor = Column(Float)
     fecha = Column(Date)
+

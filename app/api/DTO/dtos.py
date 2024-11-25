@@ -8,6 +8,7 @@ class UsuarioDTOPeticion(BaseModel): #Petición para guardar los datos en la BD
     fechaNacimiento:str
     ubicacion: str
     metaAhorro: float
+    contrasena: str
     class config:
         orm_mode = True
 

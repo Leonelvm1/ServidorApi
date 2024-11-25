@@ -37,7 +37,8 @@ def guardarUsuario(datosUsuario:UsuarioDTOPeticion, database:Session=Depends(con
             nombres=datosUsuario.nombres,
             fechaNacimiento=datosUsuario.fechaNacimiento,
             ubicacion=datosUsuario.ubicacion,
-            metaAhorro=datosUsuario.metaAhorro
+            metaAhorro=datosUsuario.metaAhorro,
+            contrasena=datosUsuario.contrasena
         )
         #ordenandole a la base de datos
         database.add(usuario)
@@ -143,3 +144,4 @@ def buscarIngresos(database: Session = Depends(conectarConBD)):
     except Exception as error:
         database.rollback()
         raise HTTPException(status_code=400, detail=f"No se puede buscar los ingresos {error}")
+    
