@@ -61,3 +61,46 @@ botonRegistroUsuario.addEventListener("click", function(evento) {
     });
 
 });
+
+let botonLogin = document.getElementById("btnLogin");
+
+botonLogin.addEventListener("click", function () {
+    // Capturar los valores de los campos de usuario y contraseña
+    let usuario = document.getElementById("usuario").value.trim();
+    let contrasena = document.getElementById("passwordusuario").value.trim();
+
+    // Validar que los campos no estén vacíos
+    if (usuario === "" || contrasena === "") {
+        Swal.fire({
+            title: "¡Error!",
+            text: "Por favor completa todos los campos.",
+            icon: "warning",
+            confirmButtonText: "Aceptar"
+        });
+        return;
+    }
+
+    // Llamar a la función para buscar usuarios
+    buscarUsuario().then(function (usuarios) {
+        console.log("Usuarios obtenidos:", usuarios); // Verifica el contenido
+
+        let usuarioEncontrado = usuarios.find(
+            (user) =>
+                user.nombres === usuario && user.contrasena === contrasena
+        );
+    
+        if (usuarioEncontrado) {
+            // Redirección exitosa
+            window.location.href = "./forms.html";
+        } else {
+            // Mostrar mensaje de error
+            Swal.fire({
+                title: "¡Error!",
+                text: "Usuario o contraseña incorrectos.",
+                icon: "error",
+                confirmButtonText: "Aceptar"
+            });
+        }
+    });
+    
+});

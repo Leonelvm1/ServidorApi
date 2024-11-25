@@ -16,6 +16,7 @@ class UsuarioDTORespuesta(BaseModel): #Petición para traer los datos de la BD
     id: int
     nombres: str
     metaAhorro: float
+    contrasena: str
     class config:
         orm_mode = True
 
