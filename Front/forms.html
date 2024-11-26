@@ -54,7 +54,7 @@
             </div>
             <div id="collapseIngreso" class="collapse" aria-labelledby="headingIngreso" data-parent="#formAccordion">
                 <div class="card-body form-container">
-                    <form action="/register_ingreso" method="POST">
+                    <form>
                         <div class="form-group">
                             <label for="descripcionIngreso">Descripción</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcionIngreso" required>
@@ -85,7 +85,7 @@
             </div>
             <div id="collapseGasto" class="collapse" aria-labelledby="headingGasto" data-parent="#formAccordion">
                 <div class="card-body form-container">
-                    <form action="/register_gasto" method="POST">
+                    <form>
                         <div class="form-group">
                             <label for="descripcionGasto">Descripción</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcionGasto" required>
@@ -123,7 +123,7 @@
             </div>
             <div id="collapseCategoria" class="collapse" aria-labelledby="headingCategoria" data-parent="#formAccordion">
                 <div class="card-body form-container">
-                    <form action="/register_categoria" method="POST">
+                    <form>
                         <div class="form-group">
                             <label for="nombreCategoria">Nombre</label>
                             <input type="text" class="form-control" name="nombre" id="nombreCategoria" required>
@@ -154,5 +154,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="controladorusuario.js" type="module"></script>
+<script src="./controladorIngreso.js" type="module"></script>
+<script src="./controladorGasto.js" type="module"></script>
+<script src="./controladorCategoria.js" type="module"></script>
 </body>
 </html>
