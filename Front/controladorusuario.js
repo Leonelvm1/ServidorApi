@@ -88,10 +88,43 @@ botonLogin.addEventListener("click", function () {
             (user) =>
                 user.nombres === usuario && user.contrasena === contrasena
         );
-    
+
         if (usuarioEncontrado) {
-            // Redirección exitosa
-            window.location.href = "./forms.html";
+            // Inicio de sesión exitoso, mostrar botones dinámicos
+            Swal.fire({
+                title: "¡Inicio de sesión exitoso!",
+                text: "Selecciona una opción para continuar.",
+                icon: "success",
+                confirmButtonText: "Aceptar"
+            }).then(function () {
+                // Crear contenedor para los botones si no existe
+                let contenedorOpciones = document.getElementById("opciones");
+                if (!contenedorOpciones) {
+                    contenedorOpciones = document.createElement("div");
+                    contenedorOpciones.id = "opciones";
+                    contenedorOpciones.classList.add("mt-3", "d-flex", "justify-content-center", "gap-3");
+                    document.body.appendChild(contenedorOpciones);
+                }
+
+                // Limpiar botones previos si existen
+                contenedorOpciones.innerHTML = "";
+
+                // Crear botón "Usuarios"
+                let botonUsuarios = document.createElement("a");
+                botonUsuarios.href = "./usuarios.html";
+                botonUsuarios.classList.add("btn", "btn-primary", "mr-1");
+                botonUsuarios.textContent = "Usuarios";
+
+                // Crear botón "Formularios"
+                let botonFormularios = document.createElement("a");
+                botonFormularios.href = "./forms.html";
+                botonFormularios.classList.add("btn", "btn-success", "ml-1");
+                botonFormularios.textContent = "Formularios";
+
+                // Agregar los botones al contenedor
+                contenedorOpciones.appendChild(botonUsuarios);
+                contenedorOpciones.appendChild(botonFormularios);
+            });
         } else {
             // Mostrar mensaje de error
             Swal.fire({
@@ -102,5 +135,4 @@ botonLogin.addEventListener("click", function () {
             });
         }
     });
-    
 });
