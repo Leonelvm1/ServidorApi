@@ -30,8 +30,6 @@ export async function registrarIngreso(datosIngreso) {
     };
     
     try {
-        console.log("Datos enviados al backend:", JSON.stringify(datosIngreso));
-
         const respuestaInicial = await fetch(URL, peticion);
         if(!respuestaInicial.ok){
             throw new Error(`Error ${respuestaInicial.status}: ${respuestaInicial.statusText}`);

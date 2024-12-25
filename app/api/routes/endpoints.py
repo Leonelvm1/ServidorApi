@@ -96,7 +96,8 @@ def guardarCategoria(datosCategoria: CategoriaDTOPeticion, database: Session = D
             nombre=datosCategoria.nombre,
             descripcion=datosCategoria.descripcion,
             valor=datosCategoria.valor,
-            fecha=datosCategoria.fecha
+            fecha=datosCategoria.fecha,
+            id_usuario=datosCategoria.id_usuario
         )
         database.add(categoria)
         database.commit()

@@ -5,6 +5,7 @@ let nombreCategoria = document.getElementById("nombreCategoria");
 let descripcionCategoria = document.getElementById("descripcionCategoria");
 let valorCategoria = document.getElementById("valorCategoria");
 let fechaCategoria = document.getElementById("fechaCategoria");
+let id_usuarioCategoria =document.getElementById("id_usuarioCategoria");
 
 // Variable que asocia el botón con el formulario
 let botonRegistrarCategoria = document.getElementById("btnRegistrarCategoria");
@@ -18,7 +19,8 @@ botonRegistrarCategoria.addEventListener("click", function (evento) {
         nombre: nombreCategoria.value.trim(),
         descripcion: descripcionCategoria.value.trim(),
         valor: parseFloat(valorCategoria.value),
-        fecha: fechaCategoria.value, // Fecha en formato ISO
+        fecha: fechaCategoria.value,
+        id_usuario: id_usuarioCategoria.value
     };
 
     console.log("Datos enviados al backend:", objetoEnvioDatosCategoria);
