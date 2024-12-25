@@ -124,7 +124,8 @@ def guardarIngreso(datosIngreso: IngresoDTOPeticion, database: Session = Depends
         ingreso = Ingreso(
             descripcion=datosIngreso.descripcion,
             valor=datosIngreso.valor,
-            fecha=datosIngreso.fecha
+            fecha=datosIngreso.fecha,
+            id_usuario=datosIngreso.id_usuario
         )
         database.add(ingreso)
         database.commit()

@@ -10,8 +10,6 @@ let contrasena = document.getElementById("contrasena")
 // variable que asocia el boton con el form
 let botonRegistroUsuario = document.getElementById("btnRegistrarUsuario")
 
-
-
 // Evento onclick corregido para el registro de usuario
 botonRegistroUsuario.addEventListener("click", function(evento) {
     evento.preventDefault();

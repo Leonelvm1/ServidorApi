@@ -4,7 +4,7 @@ import { buscarIngresos, registrarIngreso } from "./services/servicioIngreso.js"
 let descripcionIngreso = document.getElementById("descripcionIngreso");
 let valorIngreso = document.getElementById("valorIngreso");
 let fechaIngreso = document.getElementById("fechaIngreso");
-let idUsuario = document.getElementById("id_usuario")
+let id_Usuario = document.getElementById("id_usuario");
 
 // Variable que asocia el botón con el formulario
 let botonRegistrarIngreso = document.getElementById("btnRegistrarIngreso");
@@ -18,7 +18,7 @@ botonRegistrarIngreso.addEventListener("click", function (evento) {
         descripcion: descripcionIngreso.value,
         valor: parseFloat(valorIngreso.value),
         fecha: fechaIngreso.value,
-        id_usuario: idUsuario.value,
+        id_usuario: parseInt(id_Usuario.value),
     };
 
     console.log(objetoEnvioDatosIngreso);

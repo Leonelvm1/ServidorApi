@@ -21,22 +21,25 @@ export async function buscarIngresos() {
 
 export async function registrarIngreso(datosIngreso) {
     const URL = "http://localhost:8000/ingreso";
-    const peticion = {
+    const peticion ={
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(datosIngreso),
     };
+    
     try {
+        console.log("Datos enviados al backend:", JSON.stringify(datosIngreso));
+
         const respuestaInicial = await fetch(URL, peticion);
-        if (!respuestaInicial.ok) {
+        if(!respuestaInicial.ok){
             throw new Error(`Error ${respuestaInicial.status}: ${respuestaInicial.statusText}`);
         }
         const respuestaFinal = await respuestaInicial.json();
         return respuestaFinal;
-    } catch (error) {
-        console.error("Error posting data:", error);
+    } catch (error){
+        console.error("Error fetching data:", error);
         throw error;
     }
 }
